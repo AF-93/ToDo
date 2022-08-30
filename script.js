@@ -1,6 +1,7 @@
 import { checkComplete } from "./components/CheckComplete.js"
 import { delIcon } from "./components/DelTask.js";
-( ()=> {
+
+  
   const btn = document.querySelector("[data-form-btn]");
 const createTask = (evento)=>{
     evento.preventDefault();
@@ -21,9 +22,12 @@ const createTask = (evento)=>{
     task.appendChild(taskContent)
     task.appendChild(delIcon())
     list.appendChild(task);
-
+    
+    const calendar = document.querySelector("[data-form-date]");
+    const date = calendar.value
+    const dateFormat=moment(date).format("DD/MM/YYYY")
+    console.log(dateFormat);
     console.log("todo normal aqui amiguito"); 
 };
 
 btn.addEventListener("click", createTask);
-})()
