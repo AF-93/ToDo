@@ -27,8 +27,7 @@ export const addTask = (evento) =>{
     const taskList = JSON.parse(localStorage.getItem("task")) || [];
       
     taskList.push(taskObj); 
-	console.log(taskList);
-    
+	    
     localStorage.setItem("task",JSON.stringify(taskList));
 
     displayTask()
