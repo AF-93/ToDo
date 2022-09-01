@@ -50,12 +50,9 @@ export const addTask = (evento) =>{
         const tittleTask = document.createElement("span");
         tittleTask.classList.add("task");
         tittleTask.innerText=inputV
-    const dateElement = document.createElement("span");
-        dateElement.innerHTML=dateFormat
         const trash = delIcon(id)
 	taskContent.appendChild(tittleTask)
             task.appendChild(taskContent)
-            task.appendChild(dateElement)
             task.appendChild(trash)
 
     return task

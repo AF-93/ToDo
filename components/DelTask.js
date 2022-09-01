@@ -9,7 +9,6 @@ export const delIcon = (id)=>{
     const list = document.querySelector("[data-list]");
     const task = JSON.parse(localStorage.getItem("task"))
     const index = task.findIndex((item)=>item.id===id)
-    console.log(index); 
     task.splice(index,1);
     localStorage.setItem("task", JSON.stringify(task))
     list.innerHTML = ""
