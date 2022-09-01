@@ -1,11 +1,17 @@
-export const delIcon = ()=>{
+import { displayTask } from "./ReadTasks.js"
+export const delIcon = (id)=>{
     const i =document.createElement("i");
     i.classList.add("fas","fa-trash-alt","trashIcon");
-    i.addEventListener("click",delTask)
+    i.addEventListener("click",(Event)=>delTask(id))
     return i
   }
-  const delTask = (event)=> {
-    const parent = event.target.parentElement;
-    parent.remove()
-  
+  const delTask = (id)=> {
+    const list = document.querySelector("[data-list]");
+    const task = JSON.parse(localStorage.getItem("task"))
+    const index = task.findIndex((item)=>item.id===id)
+    console.log(index); 
+    task.splice(index,1);
+    localStorage.setItem("task", JSON.stringify(task))
+    list.innerHTML = ""
+    displayTask()
   }
